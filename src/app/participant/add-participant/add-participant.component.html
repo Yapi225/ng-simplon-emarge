@@ -1,0 +1,92 @@
+<div class="login-page bg-light" style="margin-top: -35px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <h3 class="mb-3 ml-5" style="margin-left: 25px;">Formulaire d'émargement</h3>
+                <div class="bg-white shadow rounded">
+                    <div class="row">
+                        <div class="col-md-7 pe-0">
+                            <div class="form-left h-100 py-5 px-5">
+                                <form action="" class="row g-4" (ngSubmit)="onSubmit()" #newParticipantForm="ngForm">
+                                    <div class="col-12">
+                                        <label>Nom<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <span *ngIf="nom.valid">✅</span>
+                                                <span *ngIf="!nom.valid">⭕</span>
+                                            </div>
+                                            <input [(ngModel)]="participant.nom" name="nom" type="text"
+                                                class="form-control" id="nom" required pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+                                                placeholder="Nom" #nom="ngModel">
+                                        </div>
+                                        <div [hidden]="nom.valid || nom.pristine" class="alert alert-warning" role="alert">
+                                            Le nom est Obligatoire !
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Prenom<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <span *ngIf="prenom.valid">✅</span>
+                                                <span *ngIf="!prenom.valid">⭕</span>
+                                            </div>
+                                            <input [(ngModel)]="participant.prenom" name="prenom" type="text"
+                                                class="form-control" required placeholder="Prenom" #prenom="ngModel">
+                                        </div>
+                                        <div [hidden]="prenom.valid || prenom.pristine" class="alert alert-warning" role="alert">
+                                            Le prenom est requis !
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Tel<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <span *ngIf="tel.valid">✅</span>
+                                                <span *ngIf="!tel.valid">⭕</span>
+                                            </div>
+                                            <input [(ngModel)]="participant.tel" name="tel" type="tel"
+                                                pattern="^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
+                                                class="form-control" required placeholder="Tel" #tel="ngModel">
+                                        </div>
+                                        <div [hidden]="tel.valid || tel.pristine" class="alert alert-danger" role="alert">
+                                            Un numero de téléphone au format valide est requis !
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Email<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <span *ngIf="email.valid">✅</span>
+                                                <span *ngIf="!email.valid">⭕</span>
+                                            </div>
+                                            <input [(ngModel)]="participant.email" name="email" type="text"
+                                                pattern="^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" class="form-control"
+                                                required placeholder="Email" #email="ngModel">
+                                        </div>
+                                        <div [hidden]="email.valid || email.pristine" class="alert alert-danger" role="alert">
+                                            Un email au format valide est requis
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button type="submit" [disabled]="!newParticipantForm.form.valid"
+                                            class="btn btn-dark px-4 float-end mt-4">Enregistrer</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-5 ps-0 d-none d-md-block d-flex justify-content-center">
+                            <div class="form-right h-100 bg-light text-white text-center mx-auto align-self-center"
+                                style="padding: 20px;">
+                                <img src="https://simplon.ci/wp-content/uploads/2021/01/logo-Simplon-Co.svg"
+                                    class="img-fluid" height="140" style="margin-top: 130px;">
+                                <h2 class="fs-1 text-secondary mt-4">Merci d'emarger</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-end text-secondary mt-3">Its All Love 💖</p>
+            </div>
+        </div>
+    </div>
+</div>
